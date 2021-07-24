@@ -9,6 +9,7 @@ import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsHomePage;
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsMyAccountPage;
 
 import java.time.Month;
+import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,7 @@ public class GloappsRegisterAccountTest {
 
     @Test
     public void shouldRegisterAccount() {
+        Random rand = new Random(System.currentTimeMillis());
         homePage.clickSignInButton();
         String randomEmail = UUID.randomUUID().toString()+"@makota.pl";
         authenticationPage.enterCreateAccountEmail(randomEmail);
@@ -33,11 +35,11 @@ public class GloappsRegisterAccountTest {
                 .setFirstName("Robert")
                 .setLastName("Romanowicz")
                 .setPassword("romanow123")
-                .setDays(31)
-                .setMonths(Month.JANUARY)
+                .setDays(22)
+                .setMonths(Month.of(rand.nextInt(12)+1))
                 .setYears(1995)
-                .setNewsletter(false)
-                .setSpecialOffers(true);
+                .setNewsletter(rand.nextBoolean())
+                .setSpecialOffers(rand.nextBoolean());
         createAccountPage.fillFormWithData(formData);
         createAccountPage.clickRegister();
         assertTrue(myAccountPage.isAccountRegistered());

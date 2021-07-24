@@ -6,16 +6,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsAuthenticationPage;
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsCreateAccountPage;
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsHomePage;
+import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsMyAccountPage;
 
 import java.time.Month;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class GloappsRegisterAccountTest {
     private WebDriver driver;
     private GloappsHomePage homePage;
     private GloappsAuthenticationPage authenticationPage;
     private GloappsCreateAccountPage createAccountPage;
+    private GloappsMyAccountPage myAccountPage;
 
     @Test
     public void shouldRegisterAccount() {
@@ -25,16 +30,18 @@ public class GloappsRegisterAccountTest {
         authenticationPage.clickCreateAccount();
         FormData formData = new FormData()
                 .setMr(true)
-                .setFirstName("Roman")
+                .setFirstName("Robert")
                 .setLastName("Romanowicz")
                 .setPassword("romanow123")
                 .setDays(31)
                 .setMonths(Month.JANUARY)
                 .setYears(1995)
-                .setNewsletter(true)
-                .setSpecialOffers(false);
+                .setNewsletter(false)
+                .setSpecialOffers(true);
         createAccountPage.fillFormWithData(formData);
         createAccountPage.clickRegister();
+        assertTrue(myAccountPage.isAccountRegistered());
+        assertEquals(formData.getFirstName(), myAccountPage.getSignedInUserName());
     }
 
     @Before
@@ -46,5 +53,11 @@ public class GloappsRegisterAccountTest {
         this.homePage = new GloappsHomePage(this.driver);
         this.authenticationPage = new GloappsAuthenticationPage(this.driver);
         this.createAccountPage = new GloappsCreateAccountPage(this.driver);
+        this.myAccountPage = new GloappsMyAccountPage(this.driver);
+    }
+
+    @After
+    public void afterEach() {
+        driver.close();
     }
 }

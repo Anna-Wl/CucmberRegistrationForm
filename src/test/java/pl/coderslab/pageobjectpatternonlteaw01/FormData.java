@@ -1,12 +1,14 @@
 package pl.coderslab.pageobjectpatternonlteaw01;
 
+import java.time.Month;
+
 public class FormData {
     private boolean isMr;
     private String firstName;
     private String lastName;
     private String password;
     private int days;
-    private int months;
+    private Month months;
     private int years;
     private boolean isNewsletter;
     private boolean isSpecialOffers;
@@ -56,11 +58,11 @@ public class FormData {
         return this;
     }
 
-    public int getMonths() {
+    public Month getMonths() {
         return months;
     }
 
-    public FormData setMonths(int months) {
+    public FormData setMonths(Month months) {
         this.months = months;
         return this;
     }

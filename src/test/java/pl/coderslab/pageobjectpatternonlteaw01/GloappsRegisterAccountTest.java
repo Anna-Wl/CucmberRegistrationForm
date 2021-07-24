@@ -7,6 +7,7 @@ import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsAuthenticationP
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsCreateAccountPage;
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.GloappsHomePage;
 
+import java.time.Month;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -23,13 +24,13 @@ public class GloappsRegisterAccountTest {
         authenticationPage.enterCreateAccountEmail(randomEmail);
         authenticationPage.clickCreateAccount();
         FormData formData = new FormData()
-                .setMr(false)
-                .setFirstName("Ala")
-                .setLastName("Alasińska")
-                .setPassword("alasinska123")
-                .setDays(11)
-                .setMonths(4)
-                .setYears(1999)
+                .setMr(true)
+                .setFirstName("Roman")
+                .setLastName("Romanowicz")
+                .setPassword("romanow123")
+                .setDays(31)
+                .setMonths(Month.JANUARY)
+                .setYears(1995)
                 .setNewsletter(true)
                 .setSpecialOffers(false);
         createAccountPage.fillFormWithData(formData);

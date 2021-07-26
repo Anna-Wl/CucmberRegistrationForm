@@ -1,21 +1,25 @@
 Feature: Text search in DuckDuckgo
 
-  Scenario: Create user account
+  Scenario Outline: Create user account
     Given Page https://qloapps.coderslab.pl/en/ opened in browser
     When Click 'Sign in' button
     And Create and account
-    And Choose title false
-    And Enter name 'Jan'
-    And Enter surname 'Kowalski'
-    And Enter password 'pass123'
-    And Enter day of birth '22'
-    And Enter month of birth 'APRIL'
-    And Enter year of birth '1995'
-    And Set newsletter true
-    And Set SpecialOffers false
+    And Choose title <title>
+    And Enter name '<name>'
+    And Enter surname '<surname>'
+    And Enter password '<password>'
+    And Enter day of birth '<day>'
+    And Enter month of birth '<month>'
+    And Enter year of birth '<year>'
+    And Set newsletter <newsletter>
+    And Set SpecialOffers <specialOffers>
     And Fill the form
     And Click 'Register' button
     Then User name displayed in a browser
+
+    Examples:
+    | title | name | surname | password | day | month | year | newsletter | specialOffers |
+    | false | Jan  | Kowalski| pass123  | 22  | APRIL | 1995 | true       |  false        |
 
 
 #  .setMr(true)

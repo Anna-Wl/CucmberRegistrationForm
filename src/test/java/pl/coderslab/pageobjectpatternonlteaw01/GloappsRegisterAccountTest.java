@@ -36,10 +36,15 @@ public class GloappsRegisterAccountTest {
                 .setLastName("Romanowicz")
                 .setPassword("romanow123")
                 .setDays(22)
-                .setMonths(Month.of(rand.nextInt(12)+1))
+                .setMonths(Month.APRIL)
+                //Uzyskuje losowy miesiac
+                //.setMonths(Month.of(rand.nextInt(12)+1))
                 .setYears(1995)
-                .setNewsletter(rand.nextBoolean())
-                .setSpecialOffers(rand.nextBoolean());
+                .setNewsletter(true)
+                //Uzyskuje losowe true albo false
+                //.setNewsletter(rand.nextBoolean())
+                .setSpecialOffers(false);
+                //.setSpecialOffers(rand.nextBoolean());
         createAccountPage.fillFormWithData(formData);
         createAccountPage.clickRegister();
         assertTrue(myAccountPage.isAccountRegistered());

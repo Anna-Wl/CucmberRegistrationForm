@@ -49,20 +49,26 @@ public class GloappsCreateAccountPage {
         setInput(firstNameInput, data.getFirstName());
         setInput(lastNameInput, data.getLastName());
         setInput(passwordInput, data.getPassword());
-        setDays(data.getDays());
+       // setDays(data.getDays());
+        //Robie String bo setDays przyjmuje String jako parameter nie int
+        daysDropDown.sendKeys(String.valueOf(data.getDays()));
+        //Month to metoda wbudowana
         monthsDropDown.sendKeys(data.getMonths().name());
         yearsDropDown.sendKeys(String.valueOf(data.getYears()));
         setCheckbox(newsletterCheckbox, data.isNewsletter());
         setCheckbox(specialOffersCheckbox, data.isSpecialOffers());
     }
 
+    //Metody prywatne void
     private void setInput(WebElement input, String value) {
         input.clear();
         input.sendKeys(value);
     }
 
     private void setDays(int days) {
+        //Uzywamy Keys zeby wyczyscic dane
         daysDropDown.sendKeys(Keys.HOME+String.valueOf(days));
+        //Aplikacja posiada blad, bo jak wpisjuje 11 to pojawia sie inna liczba
         if(days == 11) {
             daysDropDown.sendKeys(Keys.DOWN);
         }

@@ -1,0 +1,23 @@
+Przygotuj opisy scenariuszy:
+1. wyszukiwanie dowolnej frazy w wyszukiwarce Google,
+Scenario: Search phrase in google.pl
+Given google.pl opened in browser
+When Enter prase "Tokyo 2020" in search input
+And Click "Szukaj w Google" button
+Then First 5 results contain phrase "Tokyo 2020" in the link text
+
+2. logowanie do portalu edukacyjnego Coders Lab https://lms.coderslab.pl
+Scenario: Login to https://lms.coderslab.p
+Given https://lms.coderslab.p opened in browser
+When Enter email "test@test.com" in "Podaj e-mail" input
+And Enter password in the "Haslo" input"
+And Click "Zaloguj" button
+Then Ikona uzytkonika jest widoczna
+
+3.uruchomienie pierwszej prezentacji z preworku Java na kursie testera automatyzującego.
+Scenario: Open first presentation from Java prework
+Given https://lms.coderslab.pl/courses opened in browser
+When Click "Tester automatyzujacy"
+And Click "Pokaz Rozdzialy"
+And Click "Wstep do kursu" link
+Then "Witaj na kursie tester automatyzujacy" is visible on the page

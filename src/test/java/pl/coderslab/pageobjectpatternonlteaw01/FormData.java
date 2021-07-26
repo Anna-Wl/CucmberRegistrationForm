@@ -8,6 +8,7 @@ public class FormData {
     private String lastName;
     private String password;
     private int days;
+    //metoda wbudowana Month
     private Month months;
     private int years;
     private boolean isNewsletter;

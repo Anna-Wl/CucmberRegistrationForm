@@ -21,3 +21,12 @@ When Click "Tester automatyzujacy"
 And Click "Pokaz Rozdzialy"
 And Click "Wstep do kursu" link
 Then "Witaj na kursie tester automatyzujacy" is visible on the page
+
+
+
+#Gherkin
+#Przygotuj opisy scenariuszy:
+
+#wyszukiwanie dowolnej frazy w wyszukiwarce Google,
+#logowanie do portalu edukacyjnego Coders Lab https://lms.coderslab.pl
+#uruchomienie pierwszej prezentacji z preworku Java na kursie testera automatyzującego.

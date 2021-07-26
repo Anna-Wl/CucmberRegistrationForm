@@ -53,7 +53,7 @@ public class GloappsCreateAccountPage {
         //Robie String bo setDays przyjmuje String jako parameter nie int
         daysDropDown.sendKeys(String.valueOf(data.getDays()));
         //Month to metoda wbudowana
-        monthsDropDown.sendKeys(data.getMonths().name());
+        monthsDropDown.sendKeys(data.getMonths());
         yearsDropDown.sendKeys(String.valueOf(data.getYears()));
         setCheckbox(newsletterCheckbox, data.isNewsletter());
         setCheckbox(specialOffersCheckbox, data.isSpecialOffers());

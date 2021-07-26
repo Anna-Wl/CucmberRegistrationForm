@@ -94,9 +94,9 @@ public class GloappsRegisterAccountPageObjSteps {
         formData.setDays(day);
     }
 
-    @And("^Enter month of birth$")
-    public void enterMonth() {
-        formData.setMonths(Month.APRIL);
+    @And("^Enter month of birth '(.*)'$")
+    public void enterMonth(String month) {
+        formData.setMonths(month);
     }
 
     @And("^Enter year of birth '(.*)'$")

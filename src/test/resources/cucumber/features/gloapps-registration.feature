@@ -9,7 +9,7 @@ Feature: Text search in DuckDuckgo
     And Enter surname 'Kowalski'
     And Enter password 'pass123'
     And Enter day of birth '22'
-    And Enter month of birth
+    And Enter month of birth 'APRIL'
     And Enter year of birth '1995'
     And Set newsletter true
     And Set SpecialOffers false

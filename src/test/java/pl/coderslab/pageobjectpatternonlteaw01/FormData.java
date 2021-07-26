@@ -9,7 +9,7 @@ public class FormData {
     private String password;
     private int days;
     //metoda wbudowana Month
-    private Month months;
+    private String months;
     private int years;
     private boolean isNewsletter;
     private boolean isSpecialOffers;
@@ -59,11 +59,11 @@ public class FormData {
         return this;
     }
 
-    public Month getMonths() {
+    public String getMonths() {
         return months;
     }
 
-    public FormData setMonths(Month months) {
+    public FormData setMonths(String months) {
         this.months = months;
         return this;
     }

@@ -36,7 +36,7 @@ public class GloappsRegisterAccountTest {
                 .setLastName("Romanowicz")
                 .setPassword("romanow123")
                 .setDays(22)
-                .setMonths(Month.APRIL)
+                .setMonths("APRIL")
                 //Uzyskuje losowy miesiac
                 //.setMonths(Month.of(rand.nextInt(12)+1))
                 .setYears(1995)

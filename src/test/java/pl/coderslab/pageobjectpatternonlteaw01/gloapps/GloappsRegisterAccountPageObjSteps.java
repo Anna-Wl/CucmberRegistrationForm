@@ -151,8 +151,19 @@ public class GloappsRegisterAccountPageObjSteps {
 //        assertEquals(formData.getFirstName(), myAccountPage.getSignedInUserName());
 //    }
 
+
+    //Cucumber Hook
     @After
     public void afterEach() {
         driver.close();
     }
 }
+
+
+//Z wykorzystaniem Cucumber przygotuj test, który będzie zakładał konto na stronie https://qloapps.coderslab.pl/.
+//Wykonana powinna być następująca sekwencja kroków:
+//strona główna
+//przycisk 'Sign in'
+//przycisk Create an account
+//wypełnienie formularza
+//przycisk Register

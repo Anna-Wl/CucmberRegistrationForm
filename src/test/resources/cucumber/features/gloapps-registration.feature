@@ -8,10 +8,14 @@ Feature: Text search in DuckDuckgo
     And Enter name 'Jan'
     And Enter surname 'Kowalski'
     And Enter password 'pass123'
+    And Enter day of birth '22'
+    And Enter month of birth
+    And Enter year of birth '1995'
+    And Set newsletter true
+    And Set SpecialOffers false
     And Fill the form
     And Click 'Register' button
     Then User name displayed in a browser
-
 
 
 #  .setMr(true)

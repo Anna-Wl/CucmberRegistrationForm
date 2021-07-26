@@ -2,6 +2,7 @@ package pl.coderslab.pageobjectpatternonlteaw01.gloapps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.After;
 import org.junit.Before;
@@ -43,9 +44,17 @@ public class GloappsRegisterAccountPageObjSteps {
         this.formData = new FormData();
     }
 
-    public FormData getFormData() {
-        return formData;
-    }
+//    @Before
+//    public void beforeEach() {
+//        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+//        this.driver = new ChromeDriver();
+//        this.driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+//        this.driver.get("https://qloapps.coderslab.pl/en/");
+//        this.homePage = new GloappsHomePage(this.driver);
+//        this.authenticationPage = new GloappsAuthenticationPage(this.driver);
+//        this.createAccountPage = new GloappsCreateAccountPage(this.driver);
+//        this.myAccountPage = new GloappsMyAccountPage(this.driver);
+//    }
 
     @When("^Click 'Sign in' button$")
     public void signInTheUser() {
@@ -80,9 +89,35 @@ public class GloappsRegisterAccountPageObjSteps {
         formData.setPassword(password);
     }
 
+    @And("^Enter day of birth '(.*)'$")
+    public void enterDay(int day) {
+        formData.setDays(day);
+    }
+
+    @And("^Enter month of birth$")
+    public void enterMonth() {
+        formData.setMonths(Month.APRIL);
+    }
+
+    @And("^Enter year of birth '(.*)'$")
+    public void enterYear(int year) {
+        formData.setYears(year);
+    }
+
+    @And("^Set newsletter (.*)$")
+    public void setNewsletter(boolean isTrue) {
+        formData.setNewsletter(isTrue);
+    }
+
+    @And("^Set SpecialOffers (.*)$")
+    public void setSpecialOffers(boolean isTrue) {
+        formData.setSpecialOffers(isTrue);
+    }
+
     @And("^Fill the form$")
     public void fillTheForm() {
         System.out.println(formData.getLastName() + formData.getFirstName() + formData.getPassword());
+
         createAccountPage.fillFormWithData(this.formData);
     }
 
@@ -91,30 +126,33 @@ public class GloappsRegisterAccountPageObjSteps {
         createAccountPage.clickRegister();
     }
 
-
-    @Test
-    public void shouldRegisterAccount() {
-
-        FormData formData = new FormData()
-                .setMr(true)
-                .setFirstName("Robert")
-                .setLastName("Romanowicz")
-                .setPassword("romanow123")
-                .setDays(22)
-                .setMonths(Month.APRIL)
-                .setYears(1995)
-                .setNewsletter(true)
-                .setSpecialOffers(false);
-        createAccountPage.fillFormWithData(formData);
-        createAccountPage.clickRegister();
+    @Then("^User name displayed in a browser$")
+    public void userNameDisplayed() {
         assertTrue(myAccountPage.isAccountRegistered());
         assertEquals(formData.getFirstName(), myAccountPage.getSignedInUserName());
     }
 
-
-
-//    @After
-//    public void afterEach() {
-//        driver.close();
+//    @Test
+//    public void shouldRegisterAccount() {
+//
+//        FormData formData = new FormData()
+//                .setMr(true)
+//                .setFirstName("Robert")
+//                .setLastName("Romanowicz")
+//                .setPassword("romanow123")
+//                .setDays(22)
+//                .setMonths(Month.APRIL)
+//                .setYears(1995)
+//                .setNewsletter(true)
+//                .setSpecialOffers(false);
+//        createAccountPage.fillFormWithData(formData);
+//        createAccountPage.clickRegister();
+//        assertTrue(myAccountPage.isAccountRegistered());
+//        assertEquals(formData.getFirstName(), myAccountPage.getSignedInUserName());
 //    }
+
+    @After
+    public void afterEach() {
+        driver.close();
+    }
 }

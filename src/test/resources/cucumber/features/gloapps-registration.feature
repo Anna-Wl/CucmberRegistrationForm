@@ -18,8 +18,10 @@ Feature: Text search in DuckDuckgo
     Then User name displayed in a browser
 
     Examples:
-    | title | name | surname | password | day | month | year | newsletter | specialOffers |
-    | false | Jan  | Kowalski| pass123  | 22  | APRIL | 1995 | true       |  false        |
+    | title | name     | surname     | password | day | month    | year | newsletter | specialOffers |
+    | true  | Jan      | Kowalski    | pass123  | 22  | APRIL    | 1995 | true       | false         |
+    | false | Aga      | Dabrowska   | pas 147  | 12  | NOVEMBER | 1986 | false      | true          |
+    | false | Karolina | Maciejewska | pass 899#| 28  | JANUARY  | 1999 | true       | true          |
 
 
 #  .setMr(true)
@@ -37,3 +39,11 @@ Feature: Text search in DuckDuckgo
 #  przycisk Create an account
 #  wypełnienie formularza
 #  przycisk Register
+
+  # Do zadania 2 należy dodać parametry w następujących polach w formularzu:
+
+  # first name
+  # last name
+  # email (pole e-mail wykorzystywane jest już na ekranie 'Sign in')
+  # password
+  # Dodanie parametrów pozwoli tworzyć wielu użytkowników w ramach jednego skryptu testowego.

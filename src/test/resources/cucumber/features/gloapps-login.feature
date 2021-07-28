@@ -21,6 +21,7 @@ Feature: Login user and change address
     Examples:
       |emailAddress          |password|company   |address |zip   |city  |phone     |info     |
       |test2@testdotcome2.com|pass123 |Coders Lab|Polna 23|77-500|Warsaw|7776118254|only vip |
+  
 
 #  strona główna
 #  przycisk 'Sign in'

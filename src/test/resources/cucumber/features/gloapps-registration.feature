@@ -19,10 +19,9 @@ Feature: Text search in DuckDuckgo
 
     Examples:
     | title | name     | surname     | password | day | month    | year | newsletter | specialOffers |
+    | false | Karolina | Maciejewska | pass 899#| 28  | JANUARY  | 1999 | true       | true          |
     | true  | Jan      | Kowalski    | pass123  | 22  | APRIL    | 1995 | true       | false         |
     | false | Aga      | Dabrowska   | pas 147  | 12  | NOVEMBER | 1986 | false      | true          |
-    | false | Karolina | Maciejewska | pass 899#| 28  | JANUARY  | 1999 | true       | true          |
-
 
 #  .setMr(true)
 #  .setFirstName("Robert")

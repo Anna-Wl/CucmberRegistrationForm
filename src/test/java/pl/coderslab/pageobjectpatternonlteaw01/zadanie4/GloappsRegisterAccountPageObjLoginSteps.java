@@ -121,10 +121,15 @@ public class GloappsRegisterAccountPageObjLoginSteps {
         assertEquals(formDataUserAddress.getPhone(), yourAddressResultPage.getLoggedInMobilePhoneNumber());
     }
 
-    @Then("^Delete user$")
+    @And("^Delete user$")
     public void deleteUser() {
         yourAddressResultPage.setDeleteUserButtonUser();
         driver.switchTo().alert().accept();
+    }
+
+    @Then("^Logout the user$")
+    public void logOutUser() {
+        yourAddressResultPage.logOutTheUser();
     }
 
     //Cucumber Hook

@@ -24,6 +24,10 @@ public class GloappsYourAddressResultPage {
     private WebElement phoneMobile;
     @FindBy(xpath = "//*[@id=\"center_column\"]/div[1]/div/div/ul/li[11]/a[2]")
     private WebElement deleteUserButton;
+    @FindBy(id = "user_info_acc")
+    private WebElement userAccountName;
+    @FindBy(xpath = "//*[@id=\"header\"]/div[3]/div/div/div[7]/ul/li/ul/li[3]")
+    private WebElement logOutLink;
 
     public GloappsYourAddressResultPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -59,6 +63,11 @@ public class GloappsYourAddressResultPage {
 
     public String getLoggedInMobilePhoneNumber() {
         return phoneMobile.getText();
+    }
+
+    public void logOutTheUser() {
+        userAccountName.click();
+        logOutLink.click();
     }
 
 }

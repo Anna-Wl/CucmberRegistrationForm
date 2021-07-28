@@ -10,6 +10,12 @@ public class GloappsAuthenticationPage {
     private WebElement emailCreateAccountInput;
     @FindBy(id = "SubmitCreate")
     private WebElement createAccountButton;
+    @FindBy(id="email")
+    private WebElement emailToLogin;
+    @FindBy(id="passwd")
+    private WebElement passwordToLogin;
+    @FindBy(id="SubmitLogin")
+    private WebElement submitLoginButton;
 
     public GloappsAuthenticationPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -22,5 +28,16 @@ public class GloappsAuthenticationPage {
 
     public void clickCreateAccount() {
         createAccountButton.click();
+    }
+
+    public void loginWithEmailAndPassword(String email, String password ) {
+        emailToLogin.clear();
+        emailToLogin.sendKeys(email);
+        passwordToLogin.clear();
+        passwordToLogin.sendKeys(password);
+    }
+
+    public void clickLoginButton() {
+        submitLoginButton.click();
     }
 }

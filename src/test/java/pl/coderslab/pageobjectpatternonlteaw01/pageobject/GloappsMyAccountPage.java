@@ -10,6 +10,8 @@ public class GloappsMyAccountPage {
     private WebElement successMessage;
     @FindBy(css = "span.account_user_name")
     private WebElement accountButton;
+    @FindBy(xpath = "//*[@id=\"center_column\"]/div/div/ul/li[4]")
+    private WebElement myAddressesLink;
 
 
     public GloappsMyAccountPage(WebDriver driver) {
@@ -23,4 +25,9 @@ public class GloappsMyAccountPage {
     public String getSignedInUserName() {
         return accountButton.getText();
     }
+
+    public void clickMyAddresses() {
+        myAddressesLink.click();
+    }
+
 }

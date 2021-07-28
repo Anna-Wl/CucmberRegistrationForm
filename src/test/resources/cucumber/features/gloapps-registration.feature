@@ -1,4 +1,4 @@
-Feature: Text search in DuckDuckgo
+Feature: Create user account
 
   Scenario: Create user account
     Given Page https://qloapps.coderslab.pl/en/ opened in browser

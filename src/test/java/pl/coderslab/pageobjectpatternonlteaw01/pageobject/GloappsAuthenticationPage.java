@@ -17,6 +17,7 @@ public class GloappsAuthenticationPage {
     @FindBy(id="SubmitLogin")
     private WebElement submitLoginButton;
 
+
     public GloappsAuthenticationPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -40,4 +41,7 @@ public class GloappsAuthenticationPage {
     public void clickLoginButton() {
         submitLoginButton.click();
     }
+
+
+
 }

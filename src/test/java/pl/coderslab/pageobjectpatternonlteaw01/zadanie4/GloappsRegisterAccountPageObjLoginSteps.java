@@ -4,13 +4,11 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.en_scouse.An;
 import org.junit.After;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.FindBy;
 import pl.coderslab.pageobjectpatternonlteaw01.FormDataUserAddress;
+import pl.coderslab.pageobjectpatternonlteaw01.FormDataUserLogin;
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.*;
 
 import java.util.concurrent.TimeUnit;
@@ -25,9 +23,10 @@ public class GloappsRegisterAccountPageObjLoginSteps {
     private GloappsAuthenticationPage authenticationPage;
     private GloappsMyAccountPage myAccountPage;
     private GLoappsMyAddressesPage myAddressesPage;
-    private FormDataUserAddress formDataUserAddress;
     private GloappsYourAddressPage yourAddressPage;
     private GloappsYourAddressResultPage yourAddressResultPage;
+    private FormDataUserAddress formDataUserAddress;
+    private FormDataUserLogin formDataUserLogin;
 
     @Given("^Page (.*) opened in browser$")
     public void openPageInBrowser(String url) {
@@ -42,6 +41,7 @@ public class GloappsRegisterAccountPageObjLoginSteps {
         this.formDataUserAddress = new FormDataUserAddress();
         this.yourAddressPage = new GloappsYourAddressPage(this.driver);
         this.yourAddressResultPage = new GloappsYourAddressResultPage(this.driver);
+        this.formDataUserLogin = new FormDataUserLogin();
     }
 
     @When("^Click 'Sign in' link$")
@@ -101,8 +101,9 @@ public class GloappsRegisterAccountPageObjLoginSteps {
 
     @And("^Fill the form$")
     public void fillTheForm() {
-       // System.out.println(formDataUserAddress.getAddress() + formDataUserAddress.getCompany() + formDataUserAddress.getZip() + formDataUserAddress.getCity() + formDataUserAddress.getPhone() + formDataUserAddress.getAdditionaInformation());
         yourAddressPage.fillFormWithData1(this.formDataUserAddress);
+        yourAddressPage.saveUserNameAdnSurname(this.formDataUserLogin);
+
     }
 
     @And("^Click 'Save'$")
@@ -112,7 +113,8 @@ public class GloappsRegisterAccountPageObjLoginSteps {
 
     @And("^User data are displayed in a browser$")
     public void userNameDisplayed() {
-        assertEquals(formDataUserAddress.getCompany(), yourAddressResultPage.getLoggedInCompany());
+        assertEquals(formDataUserLogin.getName(), yourAddressResultPage.getLoggedInUserName());
+        assertEquals(formDataUserLogin.getSurname(), yourAddressResultPage.getLoggedInSurname());
         assertEquals(formDataUserAddress.getAddress(), yourAddressResultPage.getLoggedInAddress());
         assertEquals(formDataUserAddress.getZip(), yourAddressResultPage.getLoggedInPostcode());
         assertEquals(formDataUserAddress.getCity(), yourAddressResultPage.getLoggedInCity());

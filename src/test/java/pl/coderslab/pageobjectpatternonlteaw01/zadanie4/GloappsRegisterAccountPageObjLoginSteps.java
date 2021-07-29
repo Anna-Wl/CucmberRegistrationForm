@@ -11,13 +11,15 @@ import pl.coderslab.pageobjectpatternonlteaw01.FormDataUserAddress;
 import pl.coderslab.pageobjectpatternonlteaw01.FormDataUserLogin;
 import pl.coderslab.pageobjectpatternonlteaw01.pageobject.*;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-public class GloappsRegisterAccountPageObjLoginSteps {
+public class GloappsRegisterAccountPageObjLoginSteps extends Base {
     private WebDriver driver;
     private GloappsHomePage homePage;
     private GloappsAuthenticationPage authenticationPage;
@@ -29,10 +31,8 @@ public class GloappsRegisterAccountPageObjLoginSteps {
     private FormDataUserLogin formDataUserLogin;
 
     @Given("^Page (.*) opened in browser$")
-    public void openPageInBrowser(String url) {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-        this.driver = new ChromeDriver();
-        this.driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+    public void openPageInBrowser(String url) throws IOException {
+        this.driver = initializeDriver();
         this.driver.get(url);
         this.homePage = new GloappsHomePage(this.driver);
         this.authenticationPage = new GloappsAuthenticationPage(this.driver);

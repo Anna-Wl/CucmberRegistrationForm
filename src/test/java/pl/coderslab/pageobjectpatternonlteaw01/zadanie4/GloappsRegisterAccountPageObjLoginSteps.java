@@ -129,7 +129,7 @@ public class GloappsRegisterAccountPageObjLoginSteps extends Base {
 
     @Then("^Logout the user$")
     public void logOutUser() {
-        yourAddressResultPage.logOutTheUser();
+        yourAddressResultPage.logOutTheUser(this.driver);
     }
 
 

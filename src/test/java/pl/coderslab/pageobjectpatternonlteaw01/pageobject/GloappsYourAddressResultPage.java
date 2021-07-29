@@ -3,6 +3,7 @@ package pl.coderslab.pageobjectpatternonlteaw01.pageobject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pl.coderslab.pageobjectpatternonlteaw01.FormDataUserAddress;
@@ -26,7 +27,7 @@ public class GloappsYourAddressResultPage {
     private WebElement deleteUserButton;
     @FindBy(id = "user_info_acc")
     private WebElement userAccountName;
-    @FindBy(xpath = "//*[@id=\"header\"]/div[3]/div/div/div[7]/ul/li/ul/li[3]")
+    @FindBy(xpath = "/html/body/div/div[1]/header/div[3]/div/div/div[7]/ul/li/ul/li[3]/a")
     private WebElement logOutLink;
 
     public GloappsYourAddressResultPage(WebDriver driver) {
@@ -65,8 +66,11 @@ public class GloappsYourAddressResultPage {
         return phoneMobile.getText();
     }
 
-    public void logOutTheUser() {
+    public void logOutTheUser(WebDriver driver) {
+
         userAccountName.click();
+//        Actions act=new Actions(driver);
+//        act.moveToElement(logOutLink).click().perform();
         logOutLink.click();
     }
 

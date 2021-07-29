@@ -5,9 +5,10 @@ import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class Hooks {
+public class Hooks extends Base {
     private WebDriver driver;
 
     @Before
@@ -17,9 +18,13 @@ public class Hooks {
     }
 
     @After
-    public void afterScenario(){
+    public WebDriver afterEach() throws IOException {
+        this.driver = initializeDriver();
         System.out.println("This will run after the Scenario");
+        driver.close();
+        return driver;
     }
+
 }
 
 

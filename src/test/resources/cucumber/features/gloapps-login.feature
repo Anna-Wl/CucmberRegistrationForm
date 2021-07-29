@@ -22,8 +22,8 @@ Feature: Login user and change address
     Examples:
       |emailAddress          |password |company   |address     |zip   |city  |phone     |info        |
       |test2@testdotcome2.com|pass123  |Coders Lab|Polna 23    |77-500|Warsaw|7776115254|only vip    |
-#      |test23@emailtest.com  |pas 147  |Samsung   |Zdunska 12  |04-500|Cracow|7788858211|free drinks |
-#      |karo23@emailtest.com  |pass 899#|Sony      |Krakowska 12|14-500|Gdansk|7489968252|free food   |
+      |test23@emailtest.com  |pas 147  |Samsung   |Zdunska 12  |04-500|Cracow|7788858211|free drinks |
+      |karo23@emailtest.com  |pass 899#|Sony      |Krakowska 12|14-500|Gdansk|7489968252|free food   |
 
 
 #  strona główna

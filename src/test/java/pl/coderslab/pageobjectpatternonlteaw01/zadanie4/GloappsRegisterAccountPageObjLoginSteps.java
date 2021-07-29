@@ -132,11 +132,7 @@ public class GloappsRegisterAccountPageObjLoginSteps extends Base {
         yourAddressResultPage.logOutTheUser();
     }
 
-    //Cucumber Hook
-    @After
-    public void afterEach() {
-        driver.close();
-    }
+
 }
 
 
